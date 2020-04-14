@@ -4,6 +4,7 @@ from flask_cors import CORS
 from flight_paths.exceptions.input_exception import InvalidInputException
 from flight_paths.exceptions.processing_exception import ProcessingException
 from flight_paths.service.flight_path_service import get_paths
+from flight_paths.utils.logger import logger
 
 app = Flask(__name__)
 CORS(app)
@@ -25,6 +26,7 @@ def get_flight_paths():
     This endpoint takes source airport id, destination airport id and max number of halts for backup route
     :return:
     """
+    logger.info('request received')
     source_airport_id = int(request.args.get('source'))
     destination_airport_id = int(request.args.get('destination'))
     max_halts = int(request.args.get('halts'))

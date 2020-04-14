@@ -7,4 +7,4 @@ COPY . /app
 WORKDIR /app
 
 ENV PYTHONPATH=/app
-CMD ["gunicorn", "-w", "10", "--threads", "10", "-b", "0.0.0.0:5050", "flight_paths.app:app"]
+CMD ["gunicorn", "-w", "20", "--threads", "10" , "-b", "0.0.0.0:5050", "flight_paths.app:app"]
